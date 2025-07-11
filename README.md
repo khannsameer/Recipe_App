@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -39,5 +37,3 @@ The Recipe App is a modern frontend project built using **React.js** and styled 
 ### 📡 API Info:
 
 This app uses the [Edamam Recipe Search API](https://developer.edamam.com/edamam-recipe-api) to retrieve recipe data based on user input and preferences.
-
-> > > > > > > c2816387b7bfcd8e5a2dd4d7d40d5e79d7a33655

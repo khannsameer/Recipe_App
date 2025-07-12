@@ -4,7 +4,14 @@ import Header from "../components/Header";
 const Home = () => {
   return (
     <main className="w-full flex flex-col">
-      <Header />
+      <Header
+        title={
+          <p>
+            Taste the World with <br />
+            TastyNest
+          </p>
+        }
+      />
     </main>
   );
 };

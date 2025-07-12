@@ -8,28 +8,29 @@ const Header = ({ title, image, type }) => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Background image */}
+      {/* Background Image */}
       <img
         src={bgImage}
         alt="Recipe"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
-      {/* Gradient overlay */}
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
 
-      {/* Text content */}
-      <div className="relative z-20 flex items-center justify-center h-full px-4">
-        <h1>{title}</h1>
+      {/* Text Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
+        {title && <h1>{title}</h1>}
+
         {type && (
-          <p className="text-sm mt-4 text-center text-white bg-[#1a1a1a90] px-8 sm:px-12 py-4 rounded-full">
-            Welcome to{" "}
-            <span className="text-yellow-400 font-bold">TastyNest</span>, your
-            passport to culinary adventures!
-            <br className="hidden md:block" />
-            Discover a treasure trove of delectable recipes from around the
-            globe.
-          </p>
+          <div className="w-full flex justify-center px-4">
+            <p className="text-sm sm:text-base text-white bg-[#1a1a1acc] px-6 sm:px-10 py-4 rounded-full max-w-screen-sm text-center leading-relaxed break-words whitespace-normal">
+              Welcome to{" "}
+              <span className="font-bold text-yellow-400">TastyNest</span>, your
+              passport to culinary adventures! Discover a treasure trove of
+              delectable recipes from around the globe.
+            </p>
+          </div>
         )}
       </div>
     </div>

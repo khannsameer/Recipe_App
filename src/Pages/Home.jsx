@@ -6,11 +6,12 @@ const Home = () => {
     <main className="w-full flex flex-col">
       <Header
         title={
-          <p>
+          <p className="text-white text-3xl md:text-5xl font-bold text-center font-rokkitt">
             Taste the World with <br />
             TastyNest
           </p>
         }
+        type="home"
       />
     </main>
   );

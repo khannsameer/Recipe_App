@@ -24,9 +24,9 @@ const Header = ({ title, image, type }) => {
 
         {type && (
           <div className="w-full flex justify-center px-4">
-            <p className="text-sm sm:text-base text-white bg-[#1a1a1acc] px-6 sm:px-10 py-4 rounded-full max-w-screen-sm text-center leading-relaxed break-words whitespace-normal">
+            <p className="text-sm sm:text-base text-[#A6B37D] bg-[#212121] px-6 sm:px-10 py-4 rounded-full max-w-screen-sm text-center leading-relaxed break-words whitespace-normal">
               Welcome to{" "}
-              <span className="font-bold text-yellow-400">TastyNest</span>, your
+              <span className="font-bold text-[#EEBB4D]">TastyNest</span>, your
               passport to culinary adventures! Discover a treasure trove of
               delectable recipes from around the globe.
             </p>

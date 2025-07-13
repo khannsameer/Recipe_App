@@ -6,7 +6,7 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("Chicken");
   const [limit, setLimit] = useState(20);
-  const [loading, setLoading] = useState(flase);
+  const [loading, setLoading] = useState(false);
 
   if (loading) {
     return <Loading />;

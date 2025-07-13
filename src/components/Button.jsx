@@ -1,19 +1,19 @@
 import React from "react";
 
 const Button = ({
-  isDisabled,
-  btnType,
-  containerStyle,
-  textStyle,
+  isDisabled = false,
+  btnType = "button",
+  className = "",
+  textStyle = "",
   title,
   rightIcon,
   handleClick,
 }) => {
   return (
     <button
-      disabled={isDisabled ?? false}
-      type={btnType || "button"}
-      className={`custom-btn ${containerStyle}`}
+      disabled={isDisabled}
+      type={btnType}
+      className={`${className}`}
       onClick={handleClick}
     >
       <span className="flex-1">{title}</span>

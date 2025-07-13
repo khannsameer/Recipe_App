@@ -11,9 +11,9 @@ body {
   font-family: "Rokkitt", serif;
 }
 
-.custom-btn {
+/* .custom-btn {
   @apply flex-row relative justify-center items-center py-2 px-6 outline-none;
-}
+} */
 
 /* ul>li {
   @apply hover: text-green-600

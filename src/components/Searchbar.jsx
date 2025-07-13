@@ -1,33 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Searchbar = ({
   type = "text",
-  placeholder,
+  placeholder = "Search...",
   required = false,
   value,
   name,
   handleInputChange,
   rightIcon,
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
-    <div className="w-full relative">
-      <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={handleInputChange}
-        required={required}
-        className={`w-full bg-black text-white placeholder-gray-400
-        border border-white rounded-full py-2 px-5 pr-10 text-sm
-        outline-none transition-all duration-300
-        focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:shadow-[0_0_10px_2px_rgba(255,115,0,0.7)]`}
-      />
-      {rightIcon && (
-        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-          {rightIcon}
+    <div className="relative w-full max-w-2xl px-4 group">
+      {/* Glowing background on focus */}
+      <div
+        className={`absolute inset-0 top-2 z-0 rounded-full scale-[0.97] blur-[25px] transition-opacity duration-500
+        ${isFocused ? "opacity-80" : "opacity-0"}
+        bg-gradient-to-l from-yellow-400 to-rose-500`}
+      ></div>
+
+      {/* Outer gradient border */}
+      <div className="relative z-10 bg-gradient-to-l from-yellow-400 to-rose-500 p-[3px] rounded-full transition-all">
+        {/* Inner dark input area */}
+        <div className="bg-neutral-900 rounded-full w-full flex items-center px-4 py-4">
+          <input
+            type={type}
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={handleInputChange}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            required={required}
+            className="w-full bg-transparent text-white placeholder-gray-400 text-base outline-none"
+          />
+          {rightIcon && (
+            <div className="ml-2 text-gray-300 text-lg">{rightIcon}</div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };

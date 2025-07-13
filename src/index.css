@@ -19,10 +19,10 @@ body {
   @apply hover: text-green-600
 } */
 
-.glow-on-focus:focus {
-  box-shadow: 0 0 8px 2px rgba(255, 115, 0, 0.8); /* glowing orange */
-  border-color: #ff7300; /* match the glow color */
-}
+/* .glow-on-focus:focus {
+  box-shadow: 0 0 8px 2px rgba(255, 115, 0, 0.8);
+  border-color: #ff7300;
+} */
 
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,

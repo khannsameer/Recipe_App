@@ -18,15 +18,17 @@ const Recipes = () => {
   }
 
   return (
-    <div className="w-full min-h-screen pt-28 px-4 bg-black text-white">
-      <h1 className="text-2xl font-bold text-center mb-6">Find a Recipe</h1>
+    <div className="w-full pt-28 px-4 min-h-screen bg-black text-white">
+      <h1 className="text-white text-2xl text-center mb-6 font-bold">
+        Find a Recipe
+      </h1>
       <div className="flex justify-center">
-        <form className="w-full max-w-xl">
+        <form className="w-full max-w-xl rounded-full">
           <Searchbar
             placeholder="Search for recipes..."
             handleInputChange={handleChange}
             value={query}
-            rightIcon={<FaSearch />}
+            rightIcon={<FaSearch className="text-gray-400" />}
           />
         </form>
       </div>

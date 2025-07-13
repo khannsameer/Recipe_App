@@ -16,7 +16,7 @@ const Layout = () => {
 
 function App() {
   return (
-    <div className="bg-black min-w-[380px] overflow-x-hidden">
+    <div className="bg-black min-w-[380px]">
       <Routes>
         {/* Parent Layout Route */}
         <Route path="/" element={<Layout />}>

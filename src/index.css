@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,400;0,700;1,700&display=swap");
 @import "tailwindcss";
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
 body {
-  margin: 0;
+  /* margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; */
   font-family: "Rokkitt", serif;
 }
 
@@ -18,6 +18,11 @@ body {
 /* ul>li {
   @apply hover: text-green-600
 } */
+
+.glow-on-focus:focus {
+  box-shadow: 0 0 8px 2px rgba(255, 115, 0, 0.8); /* glowing orange */
+  border-color: #ff7300; /* match the glow color */
+}
 
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -31,40 +36,6 @@ body {
 
 .bg_gradient {
   @apply bg-gradient-to-t from-slate-900 to-transparent top-0;
-}
-
-.dots-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-.dot {
-  height: 12px;
-  width: 12px;
-  margin-right: 10px;
-  border-radius: 10px;
-  background-color: #fff;
-  animation: pulse 1.5s infinite ease-in-out;
-}
-
-.dot:last-child {
-  margin-right: 0;
-}
-
-.dot:nth-child(1) {
-  animation-delay: -0.3s;
-}
-
-.dot:nth-child(2) {
-  animation-delay: -0.1s;
-}
-
-.dot:nth-child(3) {
-  animation-delay: 0.1s;
 }
 
 @keyframes pulse {

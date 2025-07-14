@@ -1,45 +1,50 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 const Searchbar = ({
   type = "text",
-  placeholder = "Search...",
+  placeholder = "Search for recipes...",
   required = false,
   value,
   name,
   handleInputChange,
   rightIcon,
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef(null);
+  const particleRef = useRef(null);
+
+  const handleFocus = () => {
+    const el = particleRef.current;
+    if (!el) return;
+
+    const x = (Math.random() - 0.5).toFixed(2);
+    const y = (Math.random() - 0.5).toFixed(2);
+    el.style.setProperty("--x", x);
+    el.style.setProperty("--y", y);
+    el.classList.remove("opacity-0");
+    el.style.animation = "nebula-float 2s forwards ease-out";
+  };
 
   return (
-    <div className="relative w-full max-w-2xl px-4 group">
-      {/* Glowing background on focus */}
-      <div
-        className={`absolute inset-0 top-2 z-0 rounded-full scale-[0.97] blur-[25px] transition-opacity duration-500
-        ${isFocused ? "opacity-80" : "opacity-0"}
-        bg-gradient-to-l from-yellow-400 to-rose-500`}
-      ></div>
-
-      {/* Outer gradient border */}
-      <div className="relative z-10 bg-gradient-to-l from-yellow-400 to-rose-500 p-[3px] rounded-full transition-all">
-        {/* Inner dark input area */}
-        <div className="bg-neutral-900 rounded-full w-full flex items-center px-4 py-4">
-          <input
-            type={type}
-            name={name}
-            placeholder={placeholder}
-            value={value}
-            onChange={handleInputChange}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            required={required}
-            className="w-full bg-transparent text-white placeholder-gray-400 text-base outline-none"
-          />
-          {rightIcon && (
-            <div className="ml-2 text-gray-300 text-lg">{rightIcon}</div>
-          )}
+    <div className="w-full max-w-xl relative nebula-input mt-6 transform translate-x-10">
+      <input
+        ref={inputRef}
+        type={type}
+        name={name}
+        value={value}
+        required={required}
+        onChange={handleInputChange}
+        onFocus={handleFocus}
+        placeholder={placeholder}
+      />
+      <span
+        ref={particleRef}
+        className="nebula-particle absolute inset-0 opacity-0 pointer-events-none"
+      ></span>
+      {rightIcon && (
+        <div className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-400">
+          {rightIcon}
         </div>
-      </div>
+      )}
     </div>
   );
 };

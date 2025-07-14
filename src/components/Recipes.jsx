@@ -19,7 +19,7 @@ const Recipes = () => {
 
   return (
     <div className="w-full pt-28 px-4 min-h-screen bg-black text-white">
-      <h1 className="text-white text-2xl text-center mb-6 font-bold">
+      <h1 className="text-white w-full max-w-xl mt-6 transform translate-x-175">
         Find a Recipe
       </h1>
       <div className="flex justify-center">

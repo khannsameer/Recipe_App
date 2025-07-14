@@ -7,7 +7,7 @@ const Header = ({ title, image, type }) => {
   const bgImage = image ?? images[Math.floor(Math.random() * images.length)];
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen max-h-[100vh] overflow-hidden">
       {/* Background Image */}
       <img
         src={bgImage}
@@ -17,6 +17,7 @@ const Header = ({ title, image, type }) => {
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent z-10" />
 
       {/* Text Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">

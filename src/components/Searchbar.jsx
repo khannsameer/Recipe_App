@@ -25,26 +25,28 @@ const Searchbar = ({
   };
 
   return (
-    <div className="w-full max-w-xl relative nebula-input mt-6 transform translate-x-10">
-      <input
-        ref={inputRef}
-        type={type}
-        name={name}
-        value={value}
-        required={required}
-        onChange={handleInputChange}
-        onFocus={handleFocus}
-        placeholder={placeholder}
-      />
-      <span
-        ref={particleRef}
-        className="nebula-particle absolute inset-0 opacity-0 pointer-events-none"
-      ></span>
-      {rightIcon && (
-        <div className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-400">
-          {rightIcon}
-        </div>
-      )}
+    <div className="w-full flex justify-center mb-10">
+      <div className="w-full max-w-sm relative nebula-input px-4">
+        <input
+          ref={inputRef}
+          type={type}
+          name={name}
+          value={value}
+          required={required}
+          onChange={handleInputChange}
+          onFocus={handleFocus}
+          placeholder={placeholder}
+        />
+        <span
+          ref={particleRef}
+          className="nebula-particle absolute inset-0 opacity-0 pointer-events-none"
+        ></span>
+        {rightIcon && (
+          <div className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-400">
+            {rightIcon}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

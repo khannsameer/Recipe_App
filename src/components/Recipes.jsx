@@ -4,10 +4,9 @@ import Loading from "./Loading";
 import Searchbar from "../components/Searchbar";
 import RecipeCard from "../components/RecipeCard";
 import { fetchRecipes } from "../utils";
-// import { fetchData } from "../server";
 
 const Recipes = () => {
-  const [recipes, setRecipes] = useState([]); //data
+  const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("chicken");
   const [limit, setLimit] = useState(30);
   const [loading, setLoading] = useState(false);
@@ -19,7 +18,7 @@ const Recipes = () => {
   const fetchRecipe = async () => {
     try {
       const data = await fetchRecipes({ query, limit });
-      console.log("Fetched recipes:", data);
+      console.log("Fetched recipes:", data); // to check in console
       setRecipes(data);
       setLoading(false);
     } catch (error) {
@@ -57,7 +56,7 @@ const Recipes = () => {
         <>
           <div className="w-full flex flex-wrap gap-10 px-0 lg:px-10 py-10">
             {recipes?.map((item, index) => (
-              <RecipeCard recipes={recipes} key={index} />
+              <RecipeCard recipe={item} key={index} />
             ))}
           </div>
         </>

@@ -20,7 +20,7 @@ export async function fetchRecipes(filter) {
 
   try {
     const response = await axios.get(url, { params, headers });
-    return response.data;
+    return response.data?.hits || []; //return only the recipes array
   } catch (error) {
     console.error("Axios error:", error.message);
     if (error.response) {

@@ -1,9 +1,14 @@
 import axios from "axios";
 
 export async function fetchRecipes(filter) {
-  const { query, limit } = filter;
+  const { query, limit = 20 } = filter;
 
   const url = "https://api.edamam.com/api/recipes/v2";
+
+  // Simulate random paging (max index ~ 80 since max=100)
+  const maxOffset = 100 - limit;
+  const from = Math.floor(Math.random() * maxOffset);
+  const to = from + limit;
 
   const params = {
     type: "public",
@@ -17,6 +22,8 @@ export async function fetchRecipes(filter) {
   const headers = {
     "Edamam-Account-User": import.meta.env.VITE_EDAMAM_ACCOUNT_USER_ID,
   };
+
+  console.log("Requesting:", { from, to, query });
 
   try {
     const response = await axios.get(url, { params, headers });

@@ -12,7 +12,7 @@ body {
 }
 
 .nebula-input input {
-  @apply w-full h-12 px-4 py-2 rounded-md font-mono text-[16px] text-gray-400 border transition-all duration-500 outline-none bg-[#212121];
+  @apply w-full h-12 px-4 py-2 mb-15 rounded-md font-mono text-[16px] text-gray-400 border transition-all duration-500 outline-none bg-[#212121];
 
   background: linear-gradient(145deg, #2e2d2d, #212121);
   border: 1px solid #404c5d;

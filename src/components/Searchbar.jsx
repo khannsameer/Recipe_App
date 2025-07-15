@@ -25,7 +25,7 @@ const Searchbar = ({
   };
 
   return (
-    <div className="w-full flex justify-center mb-10">
+    <div className="w-full flex justify-center">
       <div className="w-full max-w-sm relative nebula-input px-4">
         <input
           ref={inputRef}

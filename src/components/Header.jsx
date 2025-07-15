@@ -7,7 +7,7 @@ const Header = ({ title, image, type }) => {
   const bgImage = image ?? images[Math.floor(Math.random() * images.length)];
 
   return (
-    <div className="relative w-full h-screen max-h-[100vh] overflow-hidden">
+    <div className="relative w-full h-[100vh] overflow-hidden">
       {/* Background Image */}
       <img
         src={bgImage}

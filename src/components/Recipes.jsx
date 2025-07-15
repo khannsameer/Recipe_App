@@ -7,7 +7,7 @@ import { fetchRecipes } from "../utils";
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState("chicken");
+  const [query, setQuery] = useState("chicken biryani");
   const [limit, setLimit] = useState(30);
   const [loading, setLoading] = useState(false);
 
@@ -44,7 +44,7 @@ const Recipes = () => {
         Find a Recipe
       </h1>
       <div className="flex justify-center">
-        <form className="w-full mb-10">
+        <form className="w-full max-w-xl mb-10">
           <Searchbar
             handleInputChange={handleChange}
             value={query}
@@ -54,7 +54,10 @@ const Recipes = () => {
       </div>
       {recipes?.length > 0 ? (
         <>
-          <div className="w-full flex flex-wrap gap-10 px-0 lg:px-10 py-10">
+          <div
+            className="w-full flex flex-wrap justify-center gap-6 md:gap-10 px-4 pt-16 pb-10"
+            style={{ marginLeft: "1cm" }}
+          >
             {recipes?.map((item, index) => (
               <RecipeCard recipe={item} key={index} />
             ))}

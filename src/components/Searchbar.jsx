@@ -26,7 +26,7 @@ const Searchbar = ({
 
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full max-w-sm relative nebula-input px-4">
+      <div className="relative w-full nebula-input max-w-sm px-0">
         <input
           ref={inputRef}
           type={type}
@@ -36,13 +36,15 @@ const Searchbar = ({
           onChange={handleInputChange}
           onFocus={handleFocus}
           placeholder={placeholder}
+          className="bg-black border border-gray-800 text-gray-300 text-md rounded-full focus:ring-1 focus:ring-slate-800 focus:border-slate-800 block w-full p-2.5 outline-none px-5 placeholder:text-sm shadow-xl"
         />
         <span
           ref={particleRef}
           className="nebula-particle absolute inset-0 opacity-0 pointer-events-none"
         ></span>
+
         {rightIcon && (
-          <div className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-400">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer">
             {rightIcon}
           </div>
         )}

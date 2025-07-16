@@ -6,7 +6,7 @@ import RecipeDetails from "./Pages/RecipeDetails";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen bg-black flex flex-col">
+    <div className="min-h-screen bg-black flex flex-col overflow-x-hidden">
       <Navbar />
       <main className="flex-1">
         <Outlet />
@@ -18,14 +18,12 @@ const Layout = () => {
 
 function App() {
   return (
-    <div className="w-full overflow-x-hidden">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="recipes/:id" element={<RecipeDetails />} />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="recipe/:id" element={<RecipeDetails />} />
+      </Route>
+    </Routes>
   );
 }
 

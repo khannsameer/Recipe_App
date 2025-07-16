@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export async function fetchRecipes({ query, limit = 20, from = 0 }) {
+// ✅ Fetch multiple recipes
+export async function fetchRecipes({ query, limit = 100, from = 0 }) {
   const url = "https://api.edamam.com/api/recipes/v2";
 
   const params = {
@@ -12,9 +13,6 @@ export async function fetchRecipes({ query, limit = 20, from = 0 }) {
     to: from + limit,
   };
 
-  // if (mealType) params.mealType = mealType;
-  // if (cuisineType) params.cuisineType = cuisineType;
-
   const headers = {
     "Edamam-Account-User": import.meta.env.VITE_EDAMAM_ACCOUNT_USER_ID,
   };
@@ -23,11 +21,31 @@ export async function fetchRecipes({ query, limit = 20, from = 0 }) {
     const response = await axios.get(url, { params, headers });
     return response.data?.hits || [];
   } catch (error) {
-    console.error("Axios error:", error.message);
-    if (error.response) {
-      console.error("Status:", error.response.status);
-      console.error("Details:", error.response.data);
-    }
+    console.error("Fetch multiple recipes error:", error.message);
     return [];
+  }
+}
+
+// ✅ V2 API - Fetch a single recipe by ID
+
+export async function fetchRecipeById(id) {
+  const url = `https://api.edamam.com/api/recipes/v2/${id}`;
+
+  const params = {
+    type: "public",
+    app_id: import.meta.env.VITE_EDAMAM_API_ID,
+    app_key: import.meta.env.VITE_EDAMAM_API_KEY,
+  };
+
+  const headers = {
+    "Edamam-Account-User": import.meta.env.VITE_EDAMAM_ACCOUNT_USER_ID,
+  };
+
+  try {
+    const response = await axios.get(url, { params, headers });
+    return response.data?.recipe || null;
+  } catch (error) {
+    console.error("Fetch single recipe error:", error.message);
+    return null;
   }
 }

@@ -8,19 +8,22 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full fixed z-50 bg-black/90 text-white">
-      <nav className="flex items-center justify-between px-4 md:px-20 py-3">
-        {/* Logo + Brand Name */}
-        <a href="/" className="flex items-center space-x-3">
+    <header className="w-full fixed z-10 bg-black/90">
+      <nav className="flex w-full py-2 md:py-3 px-4 md:px-20 items-center justify-between">
+        {/* Logo + Brand */}
+        <a
+          href="/"
+          className="flex items-center justify-center text-white text-lg cursor-pointer"
+        >
           <img
             src={Logo}
             alt="Logo"
-            className="hidden md:block w-8 h-8 lg:h-14 lg:w-14 object-contain rounded-full"
+            className="hidden md:block w-8 h-8 lg:w-14 lg:h-14 rounded-full object-contain"
           />
-          <span className="text-xl font-semibold">
-            Tasty<span className="text-[#fc6e51]">Nest</span>
-          </span>
+          Tasty<span className="text-[#fc6e51]">Nest</span>
         </a>
+
+        {/* Desktop Menu */}
         <ul className="hidden md:flex text-white gap-6">
           <li>
             <a href="/">Home</a>
@@ -32,19 +35,23 @@ const Navbar = () => {
             <a href="/favorites">Favorites</a>
           </li>
         </ul>
+
+        {/* Sign In Button */}
         <Button
           title="Sign in"
-          className="hidden md:block flex justify-center items-center py-2 px-6 bg-transparent border border-white text-white hover:bg-white hover:text-slate-700 rounded-full min-w-[130px]"
+          containerStyle="hidden md:block bg-transparent border border-white text-white hover:bg-white hover:text-slate-700 rounded-full min-w-[130px]"
         />
 
+        {/* Mobile Menu Toggle */}
         <button
-          aria-label="Toggle menu"
           className="block md:hidden text-white text-xl"
           onClick={() => setOpen((prev) => !prev)}
         >
           {open ? <AiOutlineClose /> : <HiMenuAlt3 />}
         </button>
       </nav>
+
+      {/* Mobile Nav */}
       <div
         className={`${
           open ? "flex" : "hidden"
@@ -53,8 +60,12 @@ const Navbar = () => {
         <a href="/" className="hover:text-orange-400">
           Home
         </a>
-        <a href="/#recipes">Recipes</a>
-        <a href="/favorites">Favorites</a>
+        <a href="/recipes" className="hover:text-orange-400">
+          Explore
+        </a>
+        <a href="/favorites" className="hover:text-orange-400">
+          Favorites
+        </a>
       </div>
     </header>
   );

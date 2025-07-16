@@ -1,53 +1,102 @@
 import React from "react";
 import { FaFacebook, FaYoutube, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import Button from "./Button";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white border-t border-gray-700 mt-16">
-      <div className="max-w-7xl mx-auto px-6 py-32">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Left: Brand */}
-          <div className="text-3xl font-bold">
-            Tasty<span className="text-[#fc6e51]">Nest</span>
-          </div>
+    <footer className="text-white py-20 bg_gradient">
+      <div className="container mx-auto px-20 lg:px-20 py-20 flex flex-col gap-10 md:flex-row justify-between border-t border-slate-800">
+        {/* Branding */}
+        <div className="flex">
+          <p className="font-bold text-center text-2xl">
+            Tasty<span className="text-[#fc6e51] text-xl">Nest</span>
+          </p>
+        </div>
 
-          {/* Center: Social Icons */}
-          <div className="flex gap-8">
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="text-3xl hover:text-[#fc6e51] transition-all duration-300 hover:scale-110 transform"
-            >
-              <FaFacebook />
+        {/* Quick Links */}
+        <div>
+          <p className="font-semibold mb-2">QUICK LINKS</p>
+          <div className="flex flex-col text-start text-sm">
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Home
             </a>
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="text-3xl hover:text-[#fc6e51] transition-all duration-300 hover:scale-110 transform"
-            >
-              <FaInstagram />
+            <a href="#" className="block py-2 hover:text-gray-500">
+              About
             </a>
-            <a
-              href="#"
-              aria-label="WhatsApp"
-              className="text-3xl hover:text-[#fc6e51] transition-all duration-300 hover:scale-110 transform"
-            >
-              <FaWhatsapp />
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Services
             </a>
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="text-3xl hover:text-[#fc6e51] transition-all duration-300 hover:scale-110 transform"
-            >
-              <FaYoutube />
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Chefs
             </a>
-          </div>
-
-          {/* Right: Copyright */}
-          <div className="text-lg text-gray-400 text-center md:text-right">
-            &copy; {new Date().getFullYear()} TastyNest. All rights reserved.
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Contact
+            </a>
           </div>
         </div>
+
+        {/* Legal */}
+        <div>
+          <p className="font-semibold mb-2">LEGAL</p>
+          <div className="flex flex-col text-start text-sm">
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Terms & Conditions
+            </a>
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Privacy Policy
+            </a>
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Cookie Policy
+            </a>
+            <a href="#" className="block py-2 hover:text-gray-500">
+              Copyright Info
+            </a>
+          </div>
+        </div>
+
+        {/* Social + CTA */}
+        <div className="flex flex-col">
+          <p className="font-semibold mb-2">SOCIAL MEDIA</p>
+          <div className="flex mt-4 gap-3">
+            <a
+              href="#"
+              className="bg-blue-600 p-1.5 rounded-sm text-white hover:text-gray-500 hover:scale-110"
+            >
+              <FaFacebook size={18} />
+            </a>
+            <a
+              href="#"
+              className="bg-pink-600 p-1.5 rounded-sm text-white hover:text-gray-500 hover:scale-110"
+            >
+              <FaInstagram size={18} />
+            </a>
+            <a
+              href="#"
+              className="bg-green-600 p-1.5 rounded-sm text-white hover:text-gray-500 hover:scale-110"
+            >
+              <FaWhatsapp size={18} />
+            </a>
+            <a
+              href="#"
+              className="bg-red-600 p-1.5 rounded-sm text-white hover:scale-110"
+            >
+              <FaYoutube size={18} />
+            </a>
+          </div>
+
+          <Button
+            title="Sign up"
+            btnType="button"
+            conteinerStyle="mt-10 md:block bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-md min-w-[130px]"
+          />
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="flex items-center justify-center py-10">
+        <span className="text-gray-400 text-sm">
+          &copy; {new Date().getFullYear()} TastyNest. All rights reserved.
+        </span>
       </div>
     </footer>
   );

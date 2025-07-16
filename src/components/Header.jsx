@@ -8,7 +8,7 @@ const Header = ({ title, image, type }) => {
 
   return (
     <div className="relative w-full h-[450px] sm:h-[550px] lg:h-[600px] overflow-hidden">
-      {/* Background image */}
+      {/* Background Image */}
       <img
         src={bgImage}
         alt="Hero"
@@ -19,15 +19,15 @@ const Header = ({ title, image, type }) => {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-10" />
 
       {/* Text Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 pt-32">
         {title && (
-          <h1 className="text-white text-3xl sm:text-5xl font-bold leading-tight drop-shadow-md">
+          <h1 className="text-white text-3xl sm:text-5xl font-bold leading-tight drop-shadow-lg">
             {title}
           </h1>
         )}
 
         {type && (
-          <p className="mt-5 text-sm sm:text-base max-w-md px-5 py-3 bg-[#0f0f0f]/70 text-green-400 rounded-full shadow-md">
+          <p className="mt-5 text-sm sm:text-base max-w-md px-5 py-3 bg-black/60 text-green-400 rounded-full shadow-md backdrop-blur-md">
             Welcome to{" "}
             <span className="font-semibold text-orange-400">TastyNest</span>,
             your passport to culinary adventures!

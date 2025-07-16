@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ImageWithSkeleton from "./ImageWithSkeleton";
+import { motion } from "framer-motion";
 
 const RecipeCard = ({ recipe }) => {
   const {
@@ -15,55 +17,60 @@ const RecipeCard = ({ recipe }) => {
 
   const id = uri?.split("#")[1];
 
+  const tags = [
+    ...(cuisineType || []),
+    ...(mealType || []),
+    ...(dishType || []),
+    ...(dietLabels || []),
+  ];
+
   return (
-    <Link to={`/recipe/${id}`} className="w-[90%] sm:w-[260px] mx-auto">
-      <div className="relative rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-black">
-        {/* Image */}
+    <Link to={`/recipe/${id}`} className="block">
+      <div className="relative rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-black sm:p-2">
+        {/* Image with Skeleton */}
         <div className="relative h-48 w-full">
-          <img
-            src={image}
-            alt={label}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          <ImageWithSkeleton src={image} alt={label} />
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent z-10" />
         </div>
 
         {/* Content */}
         <div className="absolute bottom-0 p-4 w-full z-20 text-white">
-          <h2 className="text-lg font-semibold leading-snug truncate">
+          <h2
+            className="text-lg font-semibold leading-snug truncate"
+            title={label}
+          >
             {label}
           </h2>
           <p className="text-sm text-gray-300">
             {Math.round(calories)} calories
           </p>
 
-          {/* Tags */}
-          <div className="mt-2 flex flex-wrap gap-1 text-xs">
-            {[...(cuisineType || []), ...(mealType || [])].map((tag, idx) => (
-              <span
-                key={idx}
+          {/* Animated Tags */}
+          <motion.div
+            className="mt-2 flex flex-wrap gap-1 text-xs"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.05,
+                },
+              },
+            }}
+          >
+            {tags.map((tag, idx) => (
+              <motion.span
+                key={`${tag}-${idx}`}
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
                 className="bg-white/20 text-white px-2 py-0.5 rounded-full backdrop-blur-sm"
               >
                 {tag}
-              </span>
+              </motion.span>
             ))}
-            {dishType?.map((type, idx) => (
-              <span
-                key={idx}
-                className="bg-purple-500/30 text-white px-2 py-0.5 rounded-full"
-              >
-                {type}
-              </span>
-            ))}
-            {dietLabels?.map((label, idx) => (
-              <span
-                key={idx}
-                className="bg-green-500/30 text-white px-2 py-0.5 rounded-full"
-              >
-                {label}
-              </span>
-            ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </Link>

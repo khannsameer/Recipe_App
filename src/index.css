@@ -4,16 +4,24 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
-body {
-  /* margin: 0;
-  padding: 0;
-  box-sizing: border-box; */
-  font-family: "Rokkitt", serif;
+html,
+body,
+#root {
+  height: 100%;
 }
 
-.nebula-input input {
-  @apply w-full h-12 px-4 py-2 mb-15 rounded-md font-mono text-[16px] text-gray-400 border transition-all duration-500 outline-none bg-[#212121];
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rokkitt", serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
+/* Nebula input style */
+.nebula-input input {
+  @apply w-full h-12 px-4 py-2 rounded-md font-mono text-[16px] text-gray-400 border transition-all duration-500 outline-none;
   background: linear-gradient(145deg, #2e2d2d, #212121);
   border: 1px solid #404c5d;
   box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
@@ -31,7 +39,7 @@ body {
   color: #d6d6d6;
 }
 
-/* Optional Particle Animation */
+/* Floating particle effect */
 @keyframes nebula-float {
   0% {
     transform: scale(0.5) translate3d(0, 0, 0);
@@ -44,6 +52,33 @@ body {
   }
 }
 
+.nebula-particle {
+  border-radius: 50%;
+  background: radial-gradient(#3f58bc 0%, transparent 70%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Shimmer effect for image skeleton */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #2e2e2e 0%, #3c3c3c 50%, #2e2e2e 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  opacity: 0.4;
+}
+
 /* .custom-btn {
   @apply flex-row relative justify-center items-center py-2 px-6 outline-none;
 } */
@@ -52,7 +87,7 @@ body {
   @apply hover: text-green-600
 } */
 
-.shadow {
+/* .shadow {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -84,4 +119,4 @@ body {
     background-color: #2584f8;
     box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
   }
-}
+} */

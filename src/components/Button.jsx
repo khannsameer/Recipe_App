@@ -13,10 +13,10 @@ const Button = ({
     <button
       disabled={isDisabled}
       type={btnType}
-      className={`${className}`}
+      className={`custom-btn ${className}`}
       onClick={handleClick}
     >
-      <span className="flex-1">{title}</span>
+      <span className={`flex-1 ${textStyle}`}>{title}</span>
       {rightIcon && <div className="relative w-6 h-6">{rightIcon}</div>}
     </button>
   );

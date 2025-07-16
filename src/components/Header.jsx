@@ -7,31 +7,34 @@ const Header = ({ title, image, type }) => {
   const bgImage = image ?? images[Math.floor(Math.random() * images.length)];
 
   return (
-    <div className="relative w-full h-[100vh] overflow-hidden">
-      {/* Background Image */}
+    <div className="relative w-full h-[450px] sm:h-[550px] lg:h-[600px] overflow-hidden">
+      {/* Background image */}
       <img
         src={bgImage}
-        alt="Recipe"
+        alt="Hero"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent z-10" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-10" />
 
       {/* Text Content */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
-        {title && <h1>{title}</h1>}
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
+        {title && (
+          <h1 className="text-white text-3xl sm:text-5xl font-bold leading-tight drop-shadow-md">
+            {title}
+          </h1>
+        )}
 
         {type && (
-          <div className="w-full flex justify-center px-4">
-            <p className="text-sm sm:text-base text-[#A6B37D] bg-[#212121] px-6 sm:px-10 py-4 rounded-full max-w-screen-sm text-center leading-relaxed break-words whitespace-normal">
-              Welcome to{" "}
-              <span className="font-bold text-[#fc6e51]">TastyNest</span>, your
-              passport to culinary adventures! Discover a treasure trove of
-              delectable recipes from around the globe.
-            </p>
-          </div>
+          <p className="mt-5 text-sm sm:text-base max-w-md px-5 py-3 bg-[#0f0f0f]/70 text-green-400 rounded-full shadow-md">
+            Welcome to{" "}
+            <span className="font-semibold text-orange-400">TastyNest</span>,
+            your passport to culinary adventures!
+            <br />
+            Discover a treasure trove of delectable recipes from around the
+            globe.
+          </p>
         )}
       </div>
     </div>

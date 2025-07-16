@@ -38,6 +38,7 @@ const Navbar = () => {
         />
 
         <button
+          aria-label="Toggle menu"
           className="block md:hidden text-white text-xl"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -49,13 +50,11 @@ const Navbar = () => {
           open ? "flex" : "hidden"
         } bg-black flex-col w-full px-4 pt-16 pb-10 text-white gap-6 text-[14px]`}
       >
-        <a href="/">Home</a>
-        <a href="/recipes">Recipes</a>
-        <a href="/">Favorites</a>
-        <Button
-          title="Sign in"
-          className="w-full py-2 px-4 border border-white text-white hover:bg-white hover:text-slate-700 rounded-full"
-        />
+        <a href="/" className="hover:text-orange-400">
+          Home
+        </a>
+        <a href="/#recipes">Recipes</a>
+        <a href="/favorites">Favorites</a>
       </div>
     </header>
   );

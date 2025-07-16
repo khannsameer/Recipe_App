@@ -6,21 +6,21 @@ import RecipeDetails from "./Pages/RecipeDetails";
 
 const Layout = () => {
   return (
-    <>
+    <div className="min-h-screen bg-black flex flex-col">
       <Navbar />
-      <Outlet />
+      <main className="flex-1">
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
 function App() {
   return (
-    <div className="bg-black min-w-[380px] overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       <Routes>
-        {/* Parent Layout Route */}
         <Route path="/" element={<Layout />}>
-          {/* Nested Routes inside Layout */}
           <Route index element={<Home />} />
           <Route path="recipes/:id" element={<RecipeDetails />} />
         </Route>

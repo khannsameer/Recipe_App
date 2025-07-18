@@ -43,53 +43,56 @@ const Recipes = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="w-full text-white">
-      {/* Search Section */}
-      <div className="w-full flex items-center justify-center pt-10 pb-5 px-4 md:px-10">
-        <form className="w-full lg:w-2/4" onSubmit={handleSearch}>
-          <Searchbar
-            placeholder="e.g. Pasta, Vegan, Chicken"
-            handleInputChange={handleChange}
-            value={query}
-            rightIcon={
-              <FaSearch
-                className="text-gray-400 cursor-pointer"
-                onClick={handleSearch}
-              />
-            }
-          />
-        </form>
-      </div>
-
-      {/* Recipe Grid */}
-      {recipes?.length > 0 ? (
-        <>
-          <div className="w-full flex flex-wrap gap-10 px-4 lg:px-10 py-10">
-            {recipes.map((item, index) => (
-              <RecipeCard key={index} recipe={item} />
-            ))}
-          </div>
-
-          {/* Pagination Buttons */}
-          <div className="flex w-full items-center justify-center gap-4 py-10">
-            <Button
-              title="Previous"
-              isDisabled={page === 0}
-              handleClick={handlePrev}
-              containerStyle="bg-gray-700 text-white px-3 py-1 rounded-full text-sm"
+    <div className="flex flex-wrap gap-10 justify-start py-10 pl-4 lg:pl-10">
+      {/* Centered Container */}
+      <div className="max-w-screen-xl mx-auto">
+        {/* Search Section */}
+        <div className="flex items-center justify-center pt-10 pb-5">
+          <form className="w-full lg:w-2/4" onSubmit={handleSearch}>
+            <Searchbar
+              placeholder="e.g. Pasta, Vegan, Chicken"
+              handleInputChange={handleChange}
+              value={query}
+              rightIcon={
+                <FaSearch
+                  className="text-gray-400 cursor-pointer"
+                  onClick={handleSearch}
+                />
+              }
             />
-            <Button
-              title="Next"
-              handleClick={handleNext}
-              containerStyle="bg-green-800 text-white px-3 py-1 rounded-full text-sm"
-            />
-          </div>
-        </>
-      ) : (
-        <div className="text-white w-full flex items-center justify-center py-10">
-          <p className="text-center">No Recipe Found</p>
+          </form>
         </div>
-      )}
+
+        {/* Recipe Grid */}
+        {recipes?.length > 0 ? (
+          <>
+            <div className="flex flex-wrap gap-15 justify-center py-10">
+              {recipes.map((item, index) => (
+                <RecipeCard key={index} recipe={item} />
+              ))}
+            </div>
+
+            {/* Pagination Buttons */}
+            <div className="flex w-full items-center justify-center gap-4 py-10">
+              <Button
+                title="Previous"
+                isDisabled={page === 0}
+                handleClick={handlePrev}
+                containerStyle="bg-gray-700 text-white px-3 py-1 rounded-full text-sm"
+              />
+              <Button
+                title="Next"
+                handleClick={handleNext}
+                containerStyle="bg-green-800 text-white px-3 py-1 rounded-full text-sm"
+              />
+            </div>
+          </>
+        ) : (
+          <div className="w-full flex items-center justify-center py-10">
+            <p className="text-center text-white">No Recipe Found</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

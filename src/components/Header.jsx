@@ -27,7 +27,7 @@ const Header = ({ title, image, type }) => {
         )}
 
         {type && (
-          <p className="mt-5 text-sm sm:text-base max-w-md px-5 py-3 bg-black/60 text-green-400 rounded-full shadow-md backdrop-blur-md">
+          <p className="mt-5 text-sm sm:text-base max-w-md px-5 py-3 bg-black/60 text-green-400 rounded-xl shadow-md backdrop-blur-md">
             Welcome to{" "}
             <span className="font-semibold text-orange-400">TastyNest</span>,
             your passport to culinary adventures!

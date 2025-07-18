@@ -3,8 +3,8 @@ import Home from "./Pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RecipeDetails from "./Pages/RecipeDetails";
-import Explore from "./Pages/Explore";
-import Favorites from "./Pages/Favorites"; // ✅ Create this page
+// import Explore from "./Pages/Explore";
+import Favorites from "./Pages/Favorites";
 
 const Layout = () => {
   return (
@@ -23,7 +23,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="explore" element={<Explore />} />
+        {/* <Route path="explore" element={<Explore />} /> */}
         <Route path="favorites" element={<Favorites />} />
         <Route path="recipe/:id" element={<RecipeDetails />} />
       </Route>

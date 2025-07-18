@@ -65,10 +65,10 @@ const Recipes = () => {
         {/* Recipe Grid */}
         {recipes?.length > 0 ? (
           <>
-            <div className="w-full px-4">
-              <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-                {recipes.map((item, index) => (
-                  <RecipeCard key={index} recipe={item} />
+            <div className="w-full flex justify-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 max-w-7xl">
+                {recipes.map((recipe, index) => (
+                  <RecipeCard key={index} recipe={recipe} />
                 ))}
               </div>
             </div>

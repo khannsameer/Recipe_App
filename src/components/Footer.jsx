@@ -4,27 +4,27 @@ import Button from "./Button";
 
 const Footer = () => {
   return (
-    <footer className="text-white bg_gradient">
-      {/* Outer container with padding */}
-      <div className="max-w-screen-xl mx-auto px-6 md:px-20 py-20 border-t border-slate-800">
-        {/* Inner content in row layout */}
-        <div className="flex flex-col gap-10 md:flex-row justify-between">
+    <footer className="text-white bg-black mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-13 py-13 border-t border-slate-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
           {/* Branding */}
-          <div className="min-w-[160px]">
-            <p className="font-bold text-2xl">
-              Tasty<span className="text-[#fc6e51] text-xl">Nest</span>
+          <div>
+            <p className="font-bold text-3xl mt-8">
+              {" "}
+              {/* Added mt-8 */}
+              Tasty<span className="text-[#fc6e51]">Nest</span>
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="min-w-[160px]">
+          <div>
             <p className="font-semibold mb-2">QUICK LINKS</p>
-            <div className="flex flex-col text-sm">
+            <div className="flex flex-col text-sm gap-0">
               {["Home", "About", "Services", "Chefs", "Contact"].map((link) => (
                 <a
                   href="#"
                   key={link}
-                  className="block py-2 hover:text-gray-400 transition-colors"
+                  className="hover:text-gray-400 transition-colors"
                 >
                   {link}
                 </a>
@@ -33,9 +33,9 @@ const Footer = () => {
           </div>
 
           {/* Legal */}
-          <div className="min-w-[160px]">
+          <div>
             <p className="font-semibold mb-2">LEGAL</p>
-            <div className="flex flex-col text-sm">
+            <div className="flex flex-col text-sm gap-0">
               {[
                 "Terms & Conditions",
                 "Privacy Policy",
@@ -45,7 +45,7 @@ const Footer = () => {
                 <a
                   href="#"
                   key={link}
-                  className="block py-2 hover:text-gray-400 transition-colors"
+                  className="hover:text-gray-400 transition-colors"
                 >
                   {link}
                 </a>
@@ -53,49 +53,49 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social Media & Sign Up */}
-          <div className="min-w-[160px]">
+          {/* Social Media */}
+          <div>
             <p className="font-semibold mb-2">SOCIAL MEDIA</p>
-            <div className="flex mt-4 gap-3">
+            <div className="flex justify-center sm:justify-start gap-3 mt-2">
               <a
                 href="#"
-                className="bg-blue-600 p-1.5 rounded-sm text-white hover:scale-110 transition-transform"
+                className="bg-blue-600 p-2 rounded hover:scale-110 transition"
               >
                 <FaFacebook size={18} />
               </a>
               <a
                 href="#"
-                className="bg-pink-600 p-1.5 rounded-sm text-white hover:scale-110 transition-transform"
+                className="bg-pink-600 p-2 rounded hover:scale-110 transition"
               >
                 <FaInstagram size={18} />
               </a>
               <a
                 href="#"
-                className="bg-green-600 p-1.5 rounded-sm text-white hover:scale-110 transition-transform"
+                className="bg-green-600 p-2 rounded hover:scale-110 transition"
               >
                 <FaWhatsapp size={18} />
               </a>
               <a
                 href="#"
-                className="bg-red-600 p-1.5 rounded-sm text-white hover:scale-110 transition-transform"
+                className="bg-red-600 p-2 rounded hover:scale-110 transition"
               >
                 <FaYoutube size={18} />
               </a>
             </div>
 
-            <Button
-              title="Sign up"
-              btnType="button"
-              conteinerStyle="mt-10 md:block bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-md min-w-[130px]"
-            />
+            <div className="mt-6 flex justify-center sm:justify-start">
+              <Button
+                title="Sign up"
+                btnType="button"
+                conteinerStyle="bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-md px-4 py-1"
+              />
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex items-center justify-center pt-16">
-          <span className="text-gray-400 text-sm text-center">
-            &copy; {new Date().getFullYear()} TastyNest. All rights reserved.
-          </span>
+        <div className="text-center text-gray-400 text-sm mt-10">
+          &copy; {new Date().getFullYear()} TastyNest. All rights reserved.
         </div>
       </div>
     </footer>

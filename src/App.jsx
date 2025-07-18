@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RecipeDetails from "./Pages/RecipeDetails";
-import Recipes from "./Pages/Recipes"; // ✅ Create this page
+import Explore from "./Pages/Explore";
 import Favorites from "./Pages/Favorites"; // ✅ Create this page
 
 const Layout = () => {
@@ -23,8 +23,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="recipes" element={<Recipes />} /> {/* ✅ Added */}
-        <Route path="favorites" element={<Favorites />} /> {/* ✅ Added */}
+        <Route path="explore" element={<Explore />} />
+        <Route path="favorites" element={<Favorites />} />
         <Route path="recipe/:id" element={<RecipeDetails />} />
       </Route>
     </Routes>

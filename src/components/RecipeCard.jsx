@@ -25,7 +25,7 @@ const RecipeCard = ({ recipe }) => {
   ];
 
   return (
-    <Link to={`/recipe/${id}`} className="w-full md:w-[240px]">
+    <Link to={`/recipe/${id}`} className="block w-[240px]">
       <motion.div
         whileHover={{ scale: 1.03 }}
         className="flex flex-col bg-black/70 border border-slate-700 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 h-full"

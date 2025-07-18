@@ -43,12 +43,11 @@ const Recipes = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="flex flex-wrap gap-10 justify-start py-10 pl-4 lg:pl-10">
-      {/* Centered Container */}
-      <div className="max-w-screen-xl mx-auto">
-        {/* Search Section */}
-        <div className="flex items-center justify-center pt-10 pb-5">
-          <form className="w-full lg:w-2/4" onSubmit={handleSearch}>
+    <div className="w-full min-h-screen bg-black text-white py-10 px-4">
+      <div className="max-w-screen-xl mx-auto flex flex-col items-center">
+        {/* Search */}
+        <div className="w-full flex justify-center mb-10">
+          <form className="w-full max-w-xl" onSubmit={handleSearch}>
             <Searchbar
               placeholder="e.g. Pasta, Vegan, Chicken"
               handleInputChange={handleChange}
@@ -66,13 +65,15 @@ const Recipes = () => {
         {/* Recipe Grid */}
         {recipes?.length > 0 ? (
           <>
-            <div className="flex flex-wrap gap-15 justify-center py-10">
-              {recipes.map((item, index) => (
-                <RecipeCard key={index} recipe={item} />
-              ))}
+            <div className="w-full px-4">
+              <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+                {recipes.map((item, index) => (
+                  <RecipeCard key={index} recipe={item} />
+                ))}
+              </div>
             </div>
 
-            {/* Pagination Buttons */}
+            {/* Pagination */}
             <div className="flex w-full items-center justify-center gap-4 py-10">
               <Button
                 title="Previous"

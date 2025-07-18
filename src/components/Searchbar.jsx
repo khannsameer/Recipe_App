@@ -36,7 +36,7 @@ const Searchbar = ({
           onChange={handleInputChange}
           onFocus={handleFocus}
           placeholder={placeholder}
-          className="bg-black border border-gray-800 text-gray-300 text-md rounded-full focus:ring-1 focus:ring-slate-800 focus:border-slate-800 block w-full p-2.5 outline-none px-5 placeholder:text-sm shadow-xl"
+          className="bg-black border border-gray-800 text-gray-300 text-md rounded-full focus:ring-1 focus:ring-slate-800 focus:border-slate-800 block w-full py-3 px-5 outline-none placeholder:text-sm shadow-xl"
         />
         <span
           ref={particleRef}

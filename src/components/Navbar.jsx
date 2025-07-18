@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom"; // For active route detection
+import { useLocation } from "react-router-dom";
 import Logo from "../Images/Logo.jpeg";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -16,11 +16,11 @@ const Navbar = () => {
 
   return (
     <header className="w-full fixed top-0 z-50 bg-black/30 backdrop-blur-md shadow-md">
-      <nav className="max-w-[1440px] mx-auto flex items-center justify-between py-3 px-4 md:px-16">
+      <nav className="max-w-[1440px] mx-auto flex items-center justify-between py-[18px] px-4 md:px-16">
         {/* Logo + Brand */}
         <a
           href="/"
-          className="flex items-center gap-3 px-3 py-1 rounded-lg ml-3"
+          className="flex items-center gap-3 px-3 py-1 pr-4 rounded-lg"
         >
           <img
             src={Logo}
@@ -32,16 +32,16 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex text-white gap-10 mr-10">
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex text-white gap-10 pr-4">
           {navLinks.map((link) => (
             <li key={link.name} className="relative group">
               <a
                 href={link.path}
-                className="text-white transition duration-300 hover:text-[#fc6e51] 
-                 after:content-[''] after:absolute after:left-0 after:-bottom-1 
-                 after:h-[2px] after:bg-[#fc6e51] after:w-0 
-                 group-hover:after:w-full after:transition-all after:duration-300"
+                className="text-white hover:text-[#fc6e51] transition duration-300
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                  after:h-[2px] after:bg-[#fc6e51] after:w-0 
+                  group-hover:after:w-full after:transition-all after:duration-300"
               >
                 {link.name}
               </a>
@@ -49,38 +49,43 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Icon */}
         <button
-          className="block md:hidden text-white text-4xl p-2 rounded-md hover:bg-white/10 transition"
+          className="block md:hidden text-white text-3xl p-2"
           onClick={() => setOpen((prev) => !prev)}
         >
           {open ? (
-            <AiOutlineClose className="text-white text-4xl" />
+            <AiOutlineClose className="text-white text-3xl" />
           ) : (
-            <HiMenuAlt3 className="text-white" />
+            <HiMenuAlt3 className="text-white text-3xl" />
           )}
         </button>
       </nav>
 
-      {/* Mobile Nav with Slide Animation */}
-      <div
-        className={`fixed top-0 right-0 h-full w-64 bg-black/95 text-white flex flex-col gap-6 pt-20 px-6 transform ${
-          open ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-500 ease-in-out`}
-      >
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.path}
-            onClick={() => setOpen(false)}
-            className={`text-lg hover:text-[#fc6e51] transition ${
-              location.pathname === link.path ? "text-[#fc6e51]" : ""
-            }`}
-          >
-            {link.name}
-          </a>
-        ))}
-      </div>
+      {/* Mobile Nav */}
+      {open && (
+        <div
+          className="absolute top-[5px] right-8 w-[120px] rounded-xl z-40 flex flex-col gap-5 px-6 py-6
+    bg-black/90 backdrop-blur-md shadow-xl text-white transition-all duration-500 ease-in-out"
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.path}
+              onClick={() => setOpen(false)}
+              className="text-white text-base relative group pl-2"
+            >
+              <span className="group-hover:text-[#fc6e51] transition-colors duration-300">
+                {link.name}
+              </span>
+              <span
+                className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#fc6e51]
+          group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 };

@@ -16,9 +16,9 @@ body {
 }
 
 /* --- Custom Buttons --- */
-.custom-btn {
+/* .custom-btn {
   @apply flex-row relative justify-center items-center py-2 px-6 outline-none;
-}
+} */
 
 .nav-logo-text {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);

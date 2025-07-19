@@ -43,43 +43,42 @@ const Recipes = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="w-full min-h-screen bg-black text-white py-10 px-4">
-      <div className="max-w-screen-xl mx-auto flex flex-col items-center">
+    <div className="w-full min-h-screen bg-black text-white py-10">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
         {/* Search */}
-        <div className="w-full flex justify-center mb-10">
-          <form className="w-full max-w-xl" onSubmit={handleSearch}>
-            <Searchbar
-              placeholder="e.g. Pasta, Vegan, Chicken"
-              handleInputChange={handleChange}
-              value={query}
-              rightIcon={
-                <FaSearch
-                  className="text-gray-400 cursor-pointer"
-                  onClick={handleSearch}
-                />
-              }
-            />
-          </form>
-        </div>
+        <form
+          onSubmit={handleSearch}
+          className="flex justify-center items-center max-w-2xl mx-auto mb-12"
+        >
+          <Searchbar
+            placeholder="e.g. Pasta, Vegan, Chicken"
+            handleInputChange={handleChange}
+            value={query}
+            rightIcon={
+              <FaSearch
+                className="text-gray-400 cursor-pointer"
+                onClick={handleSearch}
+              />
+            }
+          />
+        </form>
 
-        {/* Recipe Grid */}
-        {recipes?.length > 0 ? (
+        {recipes.length > 0 ? (
           <>
-            <div className="w-full flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 max-w-7xl">
-                {recipes.map((recipe, index) => (
-                  <RecipeCard key={index} recipe={recipe} />
+            <div className="mx-auto w-full max-w-7xl px-6">
+              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {recipes.map((r, i) => (
+                  <RecipeCard key={i} recipe={r} />
                 ))}
               </div>
             </div>
 
-            {/* Pagination */}
-            <div className="flex w-full items-center justify-center gap-4 py-10">
+            <div className="flex items-center justify-center gap-4 py-10">
               <Button
                 title="Previous"
                 isDisabled={page === 0}
                 handleClick={handlePrev}
-                containerStyle="bg-gray-700 text-white px-3 py-1 rounded-full text-sm"
+                containerStyle="bg-gray-700 text-white px-3 py-1 rounded-full text-sm disabled:opacity-40"
               />
               <Button
                 title="Next"
@@ -89,9 +88,7 @@ const Recipes = () => {
             </div>
           </>
         ) : (
-          <div className="w-full flex items-center justify-center py-10">
-            <p className="text-center text-white">No Recipe Found</p>
-          </div>
+          <p className="text-center py-10">No Recipe Found</p>
         )}
       </div>
     </div>

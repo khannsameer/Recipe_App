@@ -25,8 +25,8 @@ const Searchbar = ({
   };
 
   return (
-    <div className="w-full flex justify-center">
-      <div className="relative w-full nebula-input max-w-sm px-0">
+    <div className="w-full flex justify-center items-center">
+      <div className="relative w-full nebula-input max-w-md">
         <input
           ref={inputRef}
           type={type}
@@ -38,11 +38,6 @@ const Searchbar = ({
           placeholder={placeholder}
           className="bg-black border border-gray-800 text-gray-300 text-md rounded-full focus:ring-1 focus:ring-slate-800 focus:border-slate-800 block w-full py-3 px-5 outline-none placeholder:text-sm shadow-xl"
         />
-        <span
-          ref={particleRef}
-          className="nebula-particle absolute inset-0 opacity-0 pointer-events-none"
-        ></span>
-
         {rightIcon && (
           <div className="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer">
             {rightIcon}

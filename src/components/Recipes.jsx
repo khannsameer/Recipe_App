@@ -48,9 +48,9 @@ const Recipes = () => {
         {/* Search */}
         <form
           onSubmit={handleSearch}
-          className="w-full flex justify-center mb-12"
+          className="w-full flex justify-center mb-20"
         >
-          <div className="w-full max-w-xl px-4">
+          <div className="w-full max-w-xl mx-auto">
             <Searchbar
               placeholder="e.g. Pasta, Vegan, Chicken"
               handleInputChange={handleChange}

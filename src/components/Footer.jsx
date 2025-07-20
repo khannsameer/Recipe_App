@@ -1,88 +1,131 @@
-import React from "react";
-import { FaFacebook, FaYoutube, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import Button from "./Button";
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-black mt-20">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 border-t border-slate-800">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left justify-items-center sm:justify-items-start">
-          {/* Branding */}
-          <div>
-            <p className="font-bold text-3xl">
-              Tasty<span className="text-[#fc6e51]">Nest</span>
-            </p>
-          </div>
+    <footer className="text-white py-20 bg_gradient">
+      <div className="container mx-auto pl-32 pr-24 lg:pl-40 lg:pr-32 py-20 flex flex-col gap-10 md:flex-row   justify-evenly">
+        <div className="flex ml-8 lg:ml-12">
+          <p className="font-bold text-center">
+            Tasty<span className="text-green-500 text-xl">Nest</span>
+          </p>
+        </div>
 
-          {/* Quick Links */}
-          <div>
-            <p className="font-semibold mb-3">QUICK LINKS</p>
-            <div className="flex flex-col text-sm space-y-1">
-              {["Home", "About", "Services", "Chefs", "Contact"].map((link) => (
-                <a
-                  href="#"
-                  key={link}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          </div>
+        <div className="">
+          <p>QUICK LINKS</p>
 
-          {/* Legal */}
-          <div>
-            <p className="font-semibold mb-3">LEGAL</p>
-            <div className="flex flex-col text-sm space-y-1">
-              {[
-                "Terms & Conditions",
-                "Privacy Policy",
-                "Cookie Policy",
-                "Copyright Info",
-              ].map((link) => (
-                <a
-                  href="#"
-                  key={link}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Social Media */}
-          <div>
-            <p className="font-semibold mb-3">SOCIAL MEDIA</p>
-            <div className="flex justify-center sm:justify-start gap-3 mt-3">
-              <a className="bg-blue-600 p-2 rounded hover:scale-110 transition">
-                <FaFacebook size={18} />
-              </a>
-              <a className="bg-pink-600 p-2 rounded hover:scale-110 transition">
-                <FaInstagram size={18} />
-              </a>
-              <a className="bg-green-600 p-2 rounded hover:scale-110 transition">
-                <FaWhatsapp size={18} />
-              </a>
-              <a className="bg-red-600 p-2 rounded hover:scale-110 transition">
-                <FaYoutube size={18} />
-              </a>
-            </div>
-
-            <div className="mt-6">
-              <Button
-                title="Sign up"
-                btnType="button"
-                className="bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-md px-5 py-1.5"
-              />
-            </div>
+          <div className="flex flex-col text-start mb-4 md:mb-0">
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              About
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Services
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Contact
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Chiefs
+            </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-slate-700 mt-10 pt-6 text-center text-gray-400 text-sm">
+        <div>
+          <p>LEGAL</p>
+          <div className="flex flex-col text-start mb-4 md:mb-0 text-[14px]">
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Terms and Conditions
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              License Agreement
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Copyright Information
+            </a>
+            <a
+              href="#"
+              className="block md:inline-block py-2 hover:text-gray-500"
+            >
+              Cookies Policy
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col">
+          <p>SOCIAL MEDIA</p>
+          <div className="flex mt-4 gap-3">
+            <a
+              href="#"
+              className="bg-blue-600 p-1.5 rounded-sm text-white hover:text-gray-500 hover:scale-110"
+            >
+              <FaFacebook size={18} />
+            </a>
+
+            <a
+              href="#"
+              className="bg-pink-600 p-1.5 rounded-sm text-white hover:text-gray-500 hover:scale-110"
+            >
+              <FaInstagram size={18} />
+            </a>
+            <a
+              href="#"
+              className="bg-blue-600 p-1.5 rounded-sm text-white hover:text-gray-500 hover:scale-110"
+            >
+              <FaTwitter size={18} />
+            </a>
+            <a
+              href="#"
+              className="bg-red-600 p-1.5 rounded-sm text-white hover:scale-110"
+            >
+              <FaYoutube size={18} />
+            </a>
+          </div>
+
+          <Button
+            title="Sign up"
+            btnType="button"
+            conteinerStyle="mt-10 md:block bg-transparent border border-white text-white hover:bg-white hover:text-black rounded-md min-w-[130px]"
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center py-10">
+        <span className="text-gray-400 leading-10">
           &copy; {new Date().getFullYear()} TastyNest. All rights reserved.
-        </div>
+        </span>
       </div>
     </footer>
   );

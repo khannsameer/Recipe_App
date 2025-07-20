@@ -16,48 +16,50 @@ const Navbar = () => {
 
   return (
     <header className="w-full fixed top-0 z-50 bg-black/30 backdrop-blur-md shadow-md">
-      <nav className="w-full px-4 md:px-12 lg:px-20">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between py-[18px]">
-          {/* Logo */}
-          <a
-            href="/"
-            className="flex items-center gap-3 px-3 py-1 pr-4 rounded-lg"
-          >
-            <img
-              src={Logo}
-              alt="Logo"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-full"
-            />
-            <span className="text-white font-extrabold text-xl md:text-2xl lg:text-3xl tracking-wide leading-tight">
-              Tasty<span className="text-[#fc6e51]">Nest</span>
-            </span>
-          </a>
+      <nav className="w-full max-w-[1440px] mx-auto flex items-center justify-between py-[18px] px-4 md:px-12 lg:px-20">
+        {/* Logo + Brand */}
+        <a
+          href="/"
+          className="flex items-center gap-3 px-3 py-1 pr-4 rounded-lg"
+        >
+          <img
+            src={Logo}
+            alt="Logo"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-full"
+          />
+          <span className="text-white font-extrabold text-xl md:text-2xl lg:text-3xl tracking-wide leading-tight">
+            Tasty<span className="text-green-500 text-xl">Nest</span>
+          </span>
+        </a>
 
-          {/* Desktop Nav */}
-          <ul className="hidden md:flex text-white gap-10">
-            {navLinks.map((link) => (
-              <li key={link.name} className="relative group">
-                <a
-                  href={link.path}
-                  className="text-white hover:text-[#fc6e51] transition duration-300
-                after:content-[''] after:absolute after:left-0 after:-bottom-1 
-                after:h-[2px] after:bg-[#fc6e51] after:w-0 
-                group-hover:after:w-full after:transition-all after:duration-300"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex text-white gap-10">
+          {navLinks.map((link) => (
+            <li key={link.name} className="relative group">
+              <a
+                href={link.path}
+                className="text-white hover:text-green-500 transition duration-300
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                  after:h-[2px] after:bg-green-500 after:w-0 
+                  group-hover:after:w-full after:transition-all after:duration-300"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-          {/* Mobile Menu Icon */}
-          <button
-            className="block md:hidden text-white text-3xl p-2"
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            {open ? <AiOutlineClose /> : <HiMenuAlt3 />}
-          </button>
-        </div>
+        {/* Mobile Menu Icon */}
+        <button
+          className="block md:hidden text-white text-3xl p-2"
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          {open ? (
+            <AiOutlineClose className="text-white text-3xl" />
+          ) : (
+            <HiMenuAlt3 className="text-white text-3xl" />
+          )}
+        </button>
       </nav>
 
       {/* Mobile Nav */}

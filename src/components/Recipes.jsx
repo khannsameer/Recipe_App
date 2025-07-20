@@ -48,19 +48,21 @@ const Recipes = () => {
         {/* Search */}
         <form
           onSubmit={handleSearch}
-          className="flex justify-center items-center max-w-2xl mx-auto mb-12 px-4"
+          className="w-full flex justify-center mb-12"
         >
-          <Searchbar
-            placeholder="e.g. Pasta, Vegan, Chicken"
-            handleInputChange={handleChange}
-            value={query}
-            rightIcon={
-              <FaSearch
-                className="text-gray-400 cursor-pointer"
-                onClick={handleSearch}
-              />
-            }
-          />
+          <div className="w-full max-w-xl px-4">
+            <Searchbar
+              placeholder="e.g. Pasta, Vegan, Chicken"
+              handleInputChange={handleChange}
+              value={query}
+              rightIcon={
+                <FaSearch
+                  className="text-gray-400 cursor-pointer"
+                  onClick={handleSearch}
+                />
+              }
+            />
+          </div>
         </form>
 
         {recipes.length > 0 ? (
@@ -68,7 +70,7 @@ const Recipes = () => {
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
               {/* Recipe Grid aligned to the right */}
               <div className="flex justify-center md:justify-end">
-                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {recipes.map((r, i) => (
                     <RecipeCard key={i} recipe={r} />
                   ))}
